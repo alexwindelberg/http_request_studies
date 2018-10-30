@@ -22,14 +22,14 @@ const myInterceptor = axios.interceptors.request.use(request => {
 
 axios.interceptors.request.eject(myInterceptor);
 
-axios.interceptors.request.use(response => {
-    console.log(response);
-    // you can edit
-    return response;
-}, error => {
-    console.log(error);
-    return Promise.reject(error);
-});
+// axios.interceptors.request.use(response => {
+//     console.log(response);
+//     // you can edit
+//     return response;
+// }, error => {
+//     console.log(error);
+//     return Promise.reject(error);
+// });
 
 ReactDOM.render( <App />, document.getElementById( 'root' ) );
 registerServiceWorker();
