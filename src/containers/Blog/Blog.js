@@ -22,6 +22,7 @@ class Blog extends Component {
     state = {
         posts:  [],
         selectedPostId: null,
+        error: false
     }
 
     componentDidMount () {
@@ -40,6 +41,9 @@ class Blog extends Component {
                  })
                  this.setState({posts: updatedPosts});
                  //console.log(response);
+             })
+             .catch(error => {
+                 this.setState({error: true});
              });
     }
 
@@ -49,19 +53,23 @@ class Blog extends Component {
 
     render () {
 
-        // Now that we want to display the data we have retrived from our http request
-        // we want to display this data, we can do that by getting the data from our
-        // state and maping it, giving us a new array with our data and returning a Post
-        // for each peice of data we go through. Then later display them by calling posts
-        // {posts}
-        const posts = this.state.posts.map(
-            post => {
-                return <Post 
-                            key={post.id} 
-                            title={post.title} 
-                            author={post.author} 
-                            clicked={() => this.postSelectedHandler(post.id)} />
-        });
+        let posts = <p style={{textAlign:'center'}}>Something went wrong!</p>
+        if(!this.state.error) {
+            // Now that we want to display the data we have retrived from our http request
+            // we want to display this data, we can do that by getting the data from our
+            // state and maping it, giving us a new array with our data and returning a Post
+            // for each peice of data we go through. Then later display them by calling posts
+            // {posts}
+            posts = this.state.posts.map(
+                post => {
+                    return <Post 
+                                key={post.id} 
+                                title={post.title} 
+                                author={post.author} 
+                                clicked={() => this.postSelectedHandler(post.id)} />
+            });
+        }
+
 
         return (
             <div>
