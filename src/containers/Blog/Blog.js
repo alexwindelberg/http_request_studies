@@ -30,7 +30,7 @@ class Blog extends Component {
         // happens asynchronously so it won't finish immidately
         // const post - instead axios uses promises allowing us to use
         // ES6 then method
-        axios.get('https://jsonplaceholder.typicode.com/posts')
+        axios.get('/posts')
              .then(response => {
                  const posts = response.data.slice(0, 4);
                  const updatedPosts = posts.map(post => {
