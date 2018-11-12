@@ -14,6 +14,7 @@ class Posts extends Component {
     }
 
     componentDidMount () {
+        console.log(this.props);
         // placing this data into a const or let variable won't work because this request
         // happens asynchronously so it won't finish immidately
         // const post - instead axios uses promises allowing us to use
