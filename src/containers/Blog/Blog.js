@@ -4,6 +4,7 @@ import { Route, NavLink } from 'react-router-dom';
 import './Blog.css';
 import Posts from './Posts/Posts';
 import NewPost from './NewPost/NewPost';
+import FullPost from './FullPost/FullPost';
 
 // we will be using jsonplaceholder to request and get dummy data
 
@@ -48,6 +49,7 @@ class Blog extends Component {
                 {/* When routing this is how you render components based on the route that users wish to go */}
                 <Route path="/" exact component={Posts} />
                 <Route path="/new-post" component={NewPost} />
+                <Route path="/:id" exact component={FullPost} />
             </div>
         );
     }
