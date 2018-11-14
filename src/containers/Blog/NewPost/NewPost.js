@@ -20,9 +20,8 @@ class NewPost extends Component {
             body: this.state.content,
             author: this.state.author
         };
-
         axios.post('/posts', data)
-             .then(response => {
+            .then(response => {
                 console.log(response);
             });
     }
